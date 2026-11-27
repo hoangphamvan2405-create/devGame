@@ -9,9 +9,13 @@ public class PlayerShooter : MonoBehaviour
     [SerializeField] private AudioClip dogHitSound;
     [SerializeField] private AudioClip CuteDogSound;
     [SerializeField] private AudioClip ammoHitSound;
+    [SerializeField] private AudioClip quangluoi;
     [SerializeField] private Sprite targetHitSprite;
     [SerializeField] private Sprite ammoHitSprite;
+    [SerializeField] private Sprite SheepHitSprite;
     [SerializeField] private Sprite missSprite;
+
+
     [SerializeField] private float explosionDuration = 0.5f;
     [SerializeField] private float explosionSize = 1f;
 
@@ -21,7 +25,10 @@ public class PlayerShooter : MonoBehaviour
         Sprite hitSprite = targetHitSprite;
 
         if (target is SheepTarget)
+        {
+            hitSprite = SheepHitSprite;
             hitSound = sheepHitSound;
+        }
         else if (target is NormalWorfTarget || target is BossTarget)
             hitSound = dogHitSound;
         else if (target is CutedogTarget)
@@ -39,10 +46,12 @@ public class PlayerShooter : MonoBehaviour
 
         if (clickAudioSource != null)
         {
-            if (clickSound != null && target is not ExtraButlletTarget)
+            if (clickSound != null && target is not ExtraButlletTarget && target is not SheepTarget)
                 clickAudioSource.PlayOneShot(clickSound);
             if (hitSound != null)
                 clickAudioSource.PlayOneShot(hitSound);
+            if (target is SheepTarget && quangluoi != null)
+                clickAudioSource.PlayOneShot(quangluoi);
         }
 
         ShowHitSprite(position, hitSprite);

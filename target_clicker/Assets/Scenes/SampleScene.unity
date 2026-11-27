@@ -717,8 +717,10 @@ MonoBehaviour:
   dogHitSound: {fileID: 8300000, guid: b94326dd2c1e0a54ca2bdaa83bfaa4b8, type: 3}
   CuteDogSound: {fileID: 8300000, guid: ba9ff553c5f81094197957c9efabe4a6, type: 3}
   ammoHitSound: {fileID: 8300000, guid: dea46712b5bf84b41a6a480da17725fa, type: 3}
+  quangluoi: {fileID: 8300000, guid: cddf854f45af15d4285764f3f7ea3090, type: 3}
   targetHitSprite: {fileID: 21300000, guid: 032b967b092894547be93ac5c144a66a, type: 3}
   ammoHitSprite: {fileID: 8575261500452800632, guid: 2cf58a8a6a0912744a29b19c821c4fb9, type: 3}
+  SheepHitSprite: {fileID: 21300000, guid: 3d536bb1b3dfd9d46b21c687287ab724, type: 3}
   missSprite: {fileID: 4175847348623997439, guid: d8f4e45d240fd2444aef5fe46c149c09, type: 3}
   explosionDuration: 1
   explosionSize: 0.15

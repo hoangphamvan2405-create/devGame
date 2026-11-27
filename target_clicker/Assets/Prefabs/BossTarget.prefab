@@ -283,3 +283,4 @@ MonoBehaviour:
   realtime: 1
   scoreValue: 10
   extraScoreValue: 30
+  sheepLossOnEscape: 2

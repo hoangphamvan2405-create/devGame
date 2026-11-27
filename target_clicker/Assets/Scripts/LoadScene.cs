@@ -3,6 +3,11 @@ using UnityEngine.SceneManagement;
 
 public class LoadScene : MonoBehaviour
 {
+    [SerializeField] private GameObject Mode;
+    [SerializeField] private GameObject Tutorial;
+
+    private bool clicked = true;
+    private bool Choose = true;
     public void LoadNextScene()
     {
         SceneManager.LoadScene(
@@ -23,5 +28,28 @@ public class LoadScene : MonoBehaviour
     public void startGame()
     {
         SceneManager.LoadScene("SampleScene");
+    }
+
+    public void chooseMode()
+    {
+        Choose = true;
+        Mode.SetActive(true);
+    }
+
+    public void Hardgame()
+    {
+        SceneManager.LoadScene("HardScene");
+    }
+
+    public void ChooseTutorial()
+    {
+        clicked = true;
+        Tutorial.SetActive(true);
+    }
+
+    public void OutPanel()
+    {
+        clicked = false;
+        Tutorial.SetActive(false);
     }
 }

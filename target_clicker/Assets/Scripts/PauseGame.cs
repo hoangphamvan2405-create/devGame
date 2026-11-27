@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using Unity.VisualScripting;
 
 public class PauseGame : MonoBehaviour
 {
@@ -28,15 +29,21 @@ public class PauseGame : MonoBehaviour
         volumeOffSprite.SetActive(!isVolumeOn);
         AudioListener.volume = isVolumeOn ? 1f : 0f;
 
+        UpdateHighScoreText();
+    }
+
+    private void UpdateHighScoreText()
+    {
         if (highScoreText != null)
         {
             int highScore = PlayerPrefs.GetInt("HighScore", 0);
             highScoreText.text = $"RECORD: {highScore}";
         }
-    }   
-    
+    }
+
     public void Pause()
     {
+        UpdateHighScoreText();
         IsPaused = true;
         panel.SetActive(true);
         Time.timeScale = 0f;

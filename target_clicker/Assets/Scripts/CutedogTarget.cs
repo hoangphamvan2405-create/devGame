@@ -9,7 +9,7 @@ public class CutedogTarget : TargetBase
     }
     public override void OnHit()
     {
-        GameManager.Instance.LoseScore(scoreValue);
+        GameManager.Instance.LoseScore(scoreValue*8);
         DestroyTarget();
     }
 }

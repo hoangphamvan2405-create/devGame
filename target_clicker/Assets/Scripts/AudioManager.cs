@@ -11,6 +11,8 @@ public class AudioManager : MonoBehaviour
     public AudioClip menuMusic;       // modaugame
     public AudioClip gameMusic;       // nhạc khi chơi
 
+    public AudioClip HardGameMusic;
+
     void Awake()
     {
         if (Instance != null)
@@ -49,6 +51,8 @@ public class AudioManager : MonoBehaviour
             PlayMusic(menuMusic);
         else if (scene.name == "SampleScene")
             PlayMusic(gameMusic);
+        else if (scene.name == "HardScene")
+            PlayMusic(HardGameMusic);
         else if (scene.name == "EndScene")
             PlayMusic(menuMusic);
     }

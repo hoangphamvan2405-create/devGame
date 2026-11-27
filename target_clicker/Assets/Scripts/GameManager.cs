@@ -59,6 +59,14 @@ public class GameManager : MonoBehaviour
     {
         if (IsGameOver || value <= 0) return;
         score += value;
+
+        int highScore = PlayerPrefs.GetInt("HighScore", 0);
+        if (score > highScore)
+        {
+            PlayerPrefs.SetInt("HighScore", score);
+            PlayerPrefs.Save();
+        }
+
         updateUI();
     }
 
@@ -88,9 +96,9 @@ public class GameManager : MonoBehaviour
     }
 
     public void GameOver()
-    {       
-        Debug.Log("Game Over!" + " Score: " + score);
+    {
         PlayerPrefs.SetInt("FinalScore", score);
+        PlayerPrefs.SetString("ReplayScene", SceneManager.GetActiveScene().name);
         PlayerPrefs.Save();
         SceneManager.LoadScene("EndScene");
     }
